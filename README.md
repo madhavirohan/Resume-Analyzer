@@ -1,6 +1,8 @@
 Resume Analyzer:
 Resume Analyzer is a Flask-based web application that analyzes resumes, evaluates ATS compatibility, matches resumes with job descriptions, and recommends suitable job roles based on detected skills and NLP similarity.
 
+
+
 Features:
 1.Resume PDF Upload and Text Extraction
 2.Skill Detection and Missing Skill Analysis
@@ -14,6 +16,8 @@ Features:
 10.Resume Analysis History
 11.MySQL Database Integration
 
+
+
 Tech Stack:
 1.Python
 2.Flask
@@ -22,6 +26,8 @@ Tech Stack:
 5.CSS
 6.Scikit-Learn
 7.pdfplumber
+
+
 
 Key Learning Outcomes:
 1.Flask Web Development
