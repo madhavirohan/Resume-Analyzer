@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Resume History</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="navbar">
+
+        <div class="logo">
+            <h2>AI Resume Analyzer</h2>
+        </div>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/logout">Logout</a>
+        </div>
+
+    </div>
+
+    <h1>Resume Analysis History</h1>
+
+    <p>
+        View all your previously analyzed resumes and their scores.
+    </p>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Resume Name</th>
+
+                <th>Resume Score</th>
+
+                <th>Final Match Score</th>
+
+                <th>Analysis Date</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for row in history %}
+
+            <tr>
+
+                <td>{{ row[0] }}</td>
+
+                <td>{{ row[1] }}%</td>
+
+                <td>{{ row[2] }}%</td>
+
+                <td>{{ row[3] }}</td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+</body>
+
+</html>
+```

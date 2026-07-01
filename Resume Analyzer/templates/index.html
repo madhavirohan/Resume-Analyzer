@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Analyzer</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="navbar">
+
+        <div class="logo">
+            <h2>AI Resume Analyzer</h2>
+        </div>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/history">History</a>
+            <a href="/logout">Logout</a>
+        </div>
+
+    </div>
+
+    <div class="hero">
+
+        <h1>AI Resume Analyzer</h1>
+
+        <p>
+            Upload your resume and compare it with a Job Description to
+            receive ATS Score, Skill Match, NLP Similarity,
+            Recommended Job Role and Missing Skills.
+        </p>
+
+    </div>
+
+    <form method="POST" enctype="multipart/form-data">
+
+        <label>Upload Resume (PDF)</label>
+
+        <input
+            type="file"
+            name="resume"
+            required>
+
+        <label>Job Description</label>
+
+        <textarea
+            name="job_description"
+            id="job_description"
+            rows="10"
+            placeholder="Paste Job Description Here..."></textarea>
+
+        <button type="submit">
+            Analyze Resume
+        </button>
+
+    </form>
+
+    {% if skills %}
+
+    <div class="results">
+
+        <h2>Analysis Result</h2>
+
+        <div class="score-card">
+            <div class="score-title">Resume Score</div>
+            <div class="score-value">{{ total_score }}%</div>
+        </div>
+
+        <div class="score-card">
+            <div class="score-title">ATS Score</div>
+            <div class="score-value">{{ ats_score }}%</div>
+        </div>
+
+        <div class="score-card">
+            <div class="score-title">Final Resume Score</div>
+            <div class="score-value">{{ final_score }}%</div>
+        </div>
+
+        <div class="score-card">
+            <div class="score-title">Job Match Score</div>
+            <div class="score-value">{{ job_match_score }}%</div>
+        </div>
+
+        <div class="score-card">
+            <div class="score-title">NLP Similarity Score</div>
+            <div class="score-value">{{ nlp_score }}%</div>
+        </div>
+
+        <div class="score-card">
+            <div class="score-title">Final Match Score</div>
+            <div class="score-value">{{ final_match_score }}%</div>
+        </div>
+
+        <h3>Detected Skills</h3>
+
+        <ul>
+            {% for skill in skills %}
+                <li>{{ skill }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Missing Skills</h3>
+
+        <ul>
+            {% for skill in missing %}
+                <li>{{ skill }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Recommended Courses</h3>
+
+        <ul>
+            {% for c in courses %}
+                <li>{{ c }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Recommended Job Role</h3>
+
+        <div class="job-role">
+            {{ job_role }}
+        </div>
+
+        <h3>Job Skills</h3>
+
+        <ul>
+            {% for skill in job_skills %}
+                <li>{{ skill }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Matched Skills</h3>
+
+        <ul>
+            {% for skill in matched_skills %}
+                <li>{{ skill }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Missing Job Skills</h3>
+
+        <ul>
+            {% for skill in missing_job_skills %}
+                <li>{{ skill }}</li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
+```
